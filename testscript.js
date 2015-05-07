@@ -12,13 +12,35 @@ function UserIn(email,firstName,lastName,userType,password) {
     Password: password
   }, {
     success: function(object) {
-      $(".success").show();
+      alert("yay");
     },
     error: function(model, error) {
-      $(".error").show();
+      alert("nay");
     }
   });
 }
 function popup() {
-  alert("don't push me")
+  alert("don't push me");
+  return 'hello world'; 
+
+}
+function query() {
+  popup();
+  Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
+  return 'hello world';
+  var WorkflowUser = Parse.Object.extend("WorkflowUser");
+  var query = new Parse.Query(WorkflowUser);
+  query.equalTo("name","tomf");
+  query.find({
+    success: function(results) {
+      var object = results[0];
+      alert(object.get('LastName'));
+      document.getElementById('result').innerHTML = object.get('email');
+      
+    },
+    error:function(results) {
+      alert("woop");
+    }
+  });
+ 
 }
