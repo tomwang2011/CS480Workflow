@@ -24,23 +24,23 @@ function popup() {
 
 
 }
-function query() {
+function query(callback) {
   popup();
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
   var WorkflowUser = Parse.Object.extend("WorkflowUser");
   var query = new Parse.Query(WorkflowUser);
+  var test;
   query.equalTo("name","tomf");
   query.find({
     success: function(results) {
       var object = results[0];
       alert(object.get('LastName'));
+      test=object.get('email');
       document.getElementById('result').innerHTML = object.get('email');
-
-
+      callback(results);
     },
     error:function(results) {
       alert("woop");
     }
   });
-   return 'hello world'; 
 }
