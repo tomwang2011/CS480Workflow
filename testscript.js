@@ -49,7 +49,10 @@ function getUser(email,password) {
   query.equalTo("Password", password);
   query.find({
     success: function(results) {
-	return results[0].id;
+      var object = results[0];
+      alert(String(object.id));
+
+	 return String(object.id);
     },
     error:function(results) {
       alert("woop");
