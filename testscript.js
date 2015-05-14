@@ -5,7 +5,7 @@ function UserIn(email,firstName,lastName,userType,password) {
   var TestObject = Parse.Object.extend("WorkflowUser");
   var testObject = new TestObject();
   var query = new Parse.Query(TestObject);
-  query.equalTo("email", email);
+  query.equalTo("Email", email);
     query.first({
       success: function(object) {
         if (object) {
@@ -13,8 +13,8 @@ function UserIn(email,firstName,lastName,userType,password) {
         } else {
 		  alert("User is unique");
 		    testObject.save({
-    email: email,
-    name: firstName,
+    Email: email,
+    Name: firstName,
     LastName: lastName,
     UserType: userType,
     Password: password
@@ -45,13 +45,11 @@ function getUser(email,password) {
   var query = new Parse.Query(WorkflowUser);
 
   
-  query.equalTo("Email", "email");
-  query.equalTo("Password", "password");
+  query.equalTo("Email", email);
+  query.equalTo("Password", password);
   query.find({
     success: function(results) {
-    
 	return results[0].id;
-	
     },
     error:function(results) {
       alert("woop");
