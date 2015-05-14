@@ -5,8 +5,8 @@ function UserIn(email,firstName,lastName,userType,password) {
   var TestObject = Parse.Object.extend("WorkflowUser");
   var testObject = new TestObject();
   testObject.save({
-    email: email,
-    name: firstName,
+	Email: email,
+    Name: firstName,
     LastName: lastName,
     UserType: userType,
     Password: password
@@ -24,6 +24,27 @@ function popup() {
 
 
 }
+function getUser(email,password) {
+  popup();
+  Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
+  var WorkflowUser = Parse.Object.extend("WorkflowUser");
+  var query = new Parse.Query(WorkflowUser);
+
+  
+  query.equalTo("Email", "email");
+  query.equalTo("Password", "password");
+  query.find({
+    success: function(results) {
+    
+	return results[0].id;
+	
+    },
+    error:function(results) {
+      alert("woop");
+    }
+  });
+}
+/*
 function query(callback) {
   popup();
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
@@ -44,3 +65,4 @@ function query(callback) {
     }
   });
 }
+*/
