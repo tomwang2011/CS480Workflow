@@ -1,4 +1,4 @@
-function UserIn(email,firstName,lastName,userType,password) {
+function insertUser(email,firstName,lastName,userType,password) {
   popup();
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
 
@@ -33,11 +33,23 @@ function UserIn(email,firstName,lastName,userType,password) {
       }
     });
 }
+
+function destroyUser(email, password){
+  popup();
+  testObject.destroy({
+    success: function(testObject){
+      alert(email + "was deleted.");
+    }
+    error: function(testObject){
+      alert("User was not deleted.");
+    }
+  });
+}
+
 function popup() {
   alert("don't push me");
-
-
 }
+
 function getUser(email,password) {
   popup();
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
