@@ -43,14 +43,13 @@ function getUser(email,password) {
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
   var WorkflowUser = Parse.Object.extend("WorkflowUser");
   var query = new Parse.Query(WorkflowUser);
-
   
-  query.equalTo("email", email);
   query.equalTo("Password", password);
   query.find({
     success: function(results) {
       var object = results[0];
       alert(object.id);
+
       return object.id;
     },
     error:function(results) {
