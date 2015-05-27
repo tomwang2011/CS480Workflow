@@ -1,3 +1,5 @@
+var sample;
+
 function UserIn(email,firstName,lastName,userType,password) {
   popup();
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
@@ -38,7 +40,7 @@ function popup() {
 
 
 }
-function getUser(email,password) {
+function getUserUtil(email,password,callback) {
   popup();
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
   var WorkflowUser = Parse.Object.extend("WorkflowUser");
@@ -47,30 +49,7 @@ function getUser(email,password) {
   query.equalTo("Password", password);
   query.find({
     success: function(results) {
-      var object = results[0];
-      alert(object.id);
-
-      return object.id;
-    },
-    error:function(results) {
-      alert("woop");
-    }
-  });
-}
-/*
-function query(callback) {
-  popup();
-  Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
-  var WorkflowUser = Parse.Object.extend("WorkflowUser");
-  var query = new Parse.Query(WorkflowUser);
-  var test;
-  query.equalTo("name","tomf");
-  query.find({
-    success: function(results) {
-      var object = results[0];
-      alert(object.get('LastName'));
-      test=object.get('email');
-      document.getElementById('result').innerHTML = object.get('email');
+      console.log(results);
       callback(results);
     },
     error:function(results) {
@@ -78,4 +57,22 @@ function query(callback) {
     }
   });
 }
-*/
+
+var getUserCallback = function(results) {
+  console.log(results);
+  sample = results;
+}
+
+var getUser = function(email,password,callback) {
+    getUserUtil(email,password,callback);
+    console.log("sample is: ");
+    console.log(sample);
+}
+
+var testcallback = function(email, callback) {
+    return callback(email);
+}
+var testcallback2 = function(email) {
+  alert(email);
+  return email+" tom";
+}
