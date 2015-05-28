@@ -53,6 +53,21 @@
   document.getElementById('userType').value,
   document.getElementById('password').value)" 
   value="Push into parse">
+   <input type="button" onclick="WorkFlowCheckForeign(
+  document.getElementById('email').value,
+  document.getElementById('firstName').value,
+  document.getElementById('lastName').value,
+  document.getElementById('userType').value,
+  document.getElementById('password').value)" 
+  value="CheckFK">
+   <input type="button" onclick="Combine(
+  'WorkflowUser',
+  document.getElementById('email').value,
+  document.getElementById('firstName').value,
+  document.getElementById('lastName').value,
+  document.getElementById('userType').value,
+  document.getElementById('password').value)" 
+  value="Push User">
   <div id="result"></div>
   PullFromParse: <input type="text" id="pull" value="hello" size = 30>
   <br>
