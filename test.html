@@ -40,12 +40,15 @@ var test1;
 getUserUtil("tomemail","tompassword",function(result) {
 
     test1 = result;
+    document.getElementById("testobject").innerHTML = result.LastName;
     console.log(test1);
 });
 var test = testcallback("hello",testcallback2);
+console.log("not in function: ");
 console.log(test1);
-document.write(test);
+document.write(test1);
 </script>
+<div id="testobject"></div>
 </body>
 
 </html>
