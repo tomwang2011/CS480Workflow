@@ -7,6 +7,20 @@
 <script src="testscript.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+
+  <script>
+var callfunction = function(itemid) {
+    var test1;
+    getUserUtil("tomemail","tompassword",function(result) {
+
+        test1 = result[0];
+        console.log(test1);
+        console.log(test1.id);
+        document.getElementById(itemid).innerHTML=test1.id;
+
+    });
+}
+</script>
 </head>        
 
 <body>
@@ -36,19 +50,13 @@ var link = new joint.dia.Link({
 });
 
 graph.addCells([rect, rect2, link]);
-var test1;
-getUserUtil("tomemail","tompassword",function(result) {
 
-    test1 = result;
-    document.getElementById("testobject").innerHTML = result.LastName;
-    console.log(test1);
-});
-var test = testcallback("hello",testcallback2);
-console.log("not in function: ");
-console.log(test1);
-document.write(test1);
 </script>
 <div id="testobject"></div>
+<text id="testingtext">Original</text>
+</br>
+<button id="testbutton" onclick="callfunction('testingtext')">big button</button>
+
 </body>
 
 </html>
