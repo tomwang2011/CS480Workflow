@@ -22,7 +22,16 @@ return document.getElementById(element);
 <table id="table1" align="center">
 <tr>
 <td>Table Name:</td>
-<td><input type="text" id="tableName" value="WorkflowUser"></td>
+<td>
+<!-- <input type="text" id="tableName" value="WorkflowUser">
+ --><select id="tableName">
+<option value="WorkflowUser">WorkflowUser</option>
+<option value="WorkflowForm">WorkflowForm</option>
+<option value="WorkflowFormInstance">WorkflowFormInstance</option>
+<option value="WorkflowInstance">WorkflowInstance</option>
+<option value="WorkflowInstance">WorkflowInstanceLog</option>
+</select>
+</td>
 </tr>
 <tr>
 <td>Query Key 1:</td>
