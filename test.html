@@ -8,19 +8,6 @@
 <script src="ParseQuery.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
-
-   <script>
-  //itemid is the variable that is going to hold the result
-  var callfunction = function(itemid) {
-    //call the Promise function (all Parse queries are promise functions)
-    getObjectUtil("WorkflowUser","email","Lion","Password","Password",function(result) {
-        //below is an example of setting the variable itemid to the object.id of field-name of table name
-        console.log(result[0]);
-        console.log(result[0].id);
-        document.getElementById(itemid).innerHTML=result[0].get("Name");
-    });
-  }
-  </script>
 </head>        
 
 <body>
@@ -49,7 +36,7 @@ graph.addCells([rect, rect2, link]);
 <div id="testobject"></div>
 <text id="testingtext">Original</text>
 </br>
-<button id="testbutton" onclick="callfunction('testingtext')">big button</button>
+<button id="testbutton" onclick="callfunction('WorkflowUser','email','Lion','Password','Password','Name','testingtext')">big button</button>
 
 </body>
 

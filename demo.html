@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<title>API for Parse Query Demo</title> 
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/styles.css" />
+<script src="joint.js"></script>
+<script src="testscript.js"></script>
+<script src="ParseQuery.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+  <script>
+function $(element) {
+return document.getElementById(element);
+}
+</script>
+</head>        
+
+<body>
+<h1>API for Parse Query Demo</h1>
+<div id="testobject"></div>
+<table id="table1" align="center">
+<tr>
+<td>Table Name:</td>
+<td><input type="text" id="tableName" value="WorkflowUser"></td>
+</tr>
+<tr>
+<td>Query Key 1:</td>
+<td><input type="text" id="fieldA" value="email"></td>
+</tr>
+<tr>
+<td>Query Value 1:</td>
+<td><input type="text" id="valueA" value="Lion"></td>
+</tr>
+<tr>
+<td>Query Key 2:</td>
+<td><input type="text" id="fieldB" value="Password"></td>
+</tr>
+<tr>
+<td>Query Value 2:</td>
+<td><input type="text" id="valueB" value="Password"></td>
+</tr>
+<tr>
+<td>Retrieving Key:</td>
+<td><input type="text" id="retrieve" value="Name"></td>
+</tr>
+</table>
+<button id="testbutton" onclick="callfunction(
+$('tableName').value,
+$('fieldA').value,
+$('valueA').value,
+$('fieldB').value,
+$('valueB').value,
+$('retrieve').value,
+'retrievedText'
+)">Query</button><br><br>
+Retrieved Object is: <br>
+<p id="cssresult"><text id="retrievedText">Original</text></p>
+</body>
+
+</html>
