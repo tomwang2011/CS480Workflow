@@ -1,10 +1,11 @@
 var sample;
-<<<<<<< HEAD
+
 function Combine(table, email,firstName,lastName,userType,password) {
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
   alert(GenericCheckPrimary(table, "email", email)) // Return undefined
+
   if(GenericCheckPrimary(table,"email",email)) {
-  		  parseObject.save({
+ 		  parseObject.save({
 			email: email,
 			Name: firstName,
 			LastName: lastName,
@@ -42,87 +43,7 @@ function GenericCheckPrimary(table, column, input) {
     });
 }
 
-=======
-// Generic method of entry. Not needed anymore.
-//function Combine(table, email,firstName,lastName,userType,password) {
-//  Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
-//  alert(GenericCheckPrimary(table, "email", email)) // Returns undefined
-//  if(GenericCheckPrimary(table,"email",email)){
-//  		  parseObject.save({
-//			email: email,
-//			Name: firstName,
-//			LastName: lastName,
-//			UserType: userType,
-//			Password: password
-//			},
-//		{
-//			success: function(object) {
-//			alert("yay");
-//			},
-//    error: function(model, error) {
-//      alert("nay");
-//    }
-//  });
-//  }
-//}
-//function GenericCheckPrimary(table, column, input) {
-//  var parseTable = Parse.Object.extend(table);
-//  var parseObject = new parseTable();
-//  var query = new Parse.Query(parseTable);
-//  query.equalTo(column, input);
-//    query.first({
-//      success: function(object) {
-//        if (object) {
-//          alert("Input already exists");
-//        } else {
-//		  alert("Input does not exist, save");
-//
-//        }
-//      },
-//      error: function(error) {
-//        alert("Could not validate uniqueness for this BusStop object.");
-//      }
-//    });
-//}
-//
-//function GenericUserIn(table, email,firstName,lastName,userType,password) {
-//  Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
-//  var parseTable = Parse.Object.extend(table);
-//  var parseObject = new parseTable();
-//  var query = new Parse.Query(parseTable);
-//  query.equalTo("email", email);
-//    query.first({
-//      success: function(object) {
-//        if (object) {
-//          alert("User already exists");
-//        } else {
-//		  alert("User is unique");
-//		  parseObject.save({
-//			email: email,
-//			Name: firstName,
-//			LastName: lastName,
-//			UserType: userType,
-//			Password: password
-//			},
-//		{
-//			success: function(object) {
-//			alert("yay");
-//              //Will this work?
-//              console.log(true);
-//              callback(true);
-//			},
-//    error: function(model, error) {
-//      alert("nay");
-//    }
-//  });
-//        }
-//      },
-//      error: function(error) {
-//        alert("Could not validate uniqueness for this BusStop object.");
-//      }
-//    });
-//}
->>>>>>> 4bd8f1f5c8a00d164a0f0575d8c0b52219117337
+
 function WorkFlowCheckForeign(email,firstName,lastName,userType,password) {
   popup();
   Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
@@ -155,7 +76,6 @@ function WorkFlowCheckForeign(email,firstName,lastName,userType,password) {
       }
     });
 }
-
 
 function insertUser(email,firstName,lastName,userType,password) {
   if(userType.toLowerCase() == "user" || userType.toLowerCase() == "designer"){   //Make sure userType is user or designer, proceed if so.
@@ -354,46 +274,4 @@ function insertWorkflowInstance(workflowInstanceID, workflowID, workflowData, st
 }
 function popup() {
   alert("don't push me");
-<<<<<<< HEAD
-  }
-=======
-
-
 }
-function getUserUtil(email,password,callback) {
-  popup();
-  Parse.initialize("ej29LXB9zHARKwcF5gHhkQ4SnJS7mGwWZ01qrZAa", "jTpvM9KVA9G9XteMyDD4nDcL6xNPVhg44zliTSrw");
-  var WorkflowUser = Parse.Object.extend("WorkflowUser");
-  var query = new Parse.Query(WorkflowUser);
-  
-  query.equalTo("Password", password);
-  query.find({
-    success: function(results) {
-      console.log(results);
-      callback(results);
-    },
-    error:function(results) {
-      alert("woop");
-    }
-  });
-}
-
-var getUserCallback = function(results) {
-  console.log(results);
-  sample = results;
-}
-
-var getUser = function(email,password,callback) {
-    getUserUtil(email,password,callback);
-    console.log("sample is: ");
-    console.log(sample);
-}
-
-var testcallback = function(email, callback) {
-    return callback(email);
-}
-var testcallback2 = function(email) {
-  alert(email);
-  return email+" tom";
-}
->>>>>>> 4bd8f1f5c8a00d164a0f0575d8c0b52219117337
